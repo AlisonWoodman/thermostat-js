@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Feature Test:', function(){
+describe('Feature Tests:', function(){
   var thermostat;
 
   beforeEach (function(){
@@ -26,6 +26,29 @@ describe('Feature Test:', function(){
   		thermostat.decreaseTemp()
   	}
   	thermostat.decreaseTemp()
-  	expect(thermostat.temperature()).toEqual(10)
-  })
+  	expect(thermostat.temperature()).toEqual(10);
+  });
+
+  it('sets powersavemode to true by default', function(){
+  	expect(thermostat._powersavemode).toEqual(true);
+  });
+
+  it('sets the maximum temperature to 25 with powersavemode on', function(){
+    thermostat.powersavemode(true);
+    while (thermostat.temperature() < 25) {
+  		thermostat.increaseTemp()
+  	}
+    thermostat.increaseTemp();
+    expect(thermostat.temperature()).toEqual(25);
+  });
+
+  it('sets the maximum temperature to 32 with powersavemode off', function(){
+    thermostat.powersavemode(false);
+    while (thermostat.temperature() < 32) {
+  		thermostat.increaseTemp()
+  	}
+    thermostat.increaseTemp();
+    expect(thermostat.temperature()).toEqual(32);
+  });
+
 });
