@@ -29,3 +29,17 @@ Thermostat.prototype.decreaseTemp = function(){
 		this._temperature -= 1;
 	}
 };
+
+Thermostat.prototype.reset = function(){
+	this._temperature = 20
+};
+
+Thermostat.prototype.usage = function(){
+	if (this._temperature < 18) {
+		return 'low-usage'
+	}
+	if (this._temperature < 25) {
+		return 'medium-usage'
+	}
+	return 'high-usage'
+};

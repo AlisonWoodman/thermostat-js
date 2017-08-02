@@ -51,4 +51,19 @@ describe('Feature Tests:', function(){
     expect(thermostat.temperature()).toEqual(32);
   });
 
+  it('allows user to reset temperature to 20', function(){
+  	thermostat.increaseTemp()
+  	thermostat.reset();
+  	expect(thermostat.temperature()).toEqual(20);
+  });
+
+  it('tells the user the current energy usage', function(){
+  	thermostat._temperature = 17;
+  	expect(thermostat.usage()).toEqual('low-usage');
+  	thermostat._temperature = 24; 
+  	expect(thermostat.usage()).toEqual('medium-usage');
+  	thermostat._temperature = 25;
+  	expect(thermostat.usage()).toEqual('high-usage');
+  });
+
 });
