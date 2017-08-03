@@ -6,7 +6,7 @@
 
 .page {
   height: 1000px;
-  background-color: pink;
+  background-image: url('images/background.jpg');
   background-size: cover;
   background-attachment: fixed;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
@@ -75,5 +75,5 @@
 
 .image {
   height: 400px;
-  margin: 20px 100px ; 
+  margin: 20px 100px ;
 }
