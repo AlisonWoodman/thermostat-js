@@ -5,33 +5,39 @@
 }
 
 .page {
-  height: 1000px;
-  background-image: url('images/background.jpg');
+  padding: 50px;
+  height: 100%;
+  display: block;
+  background-image: url('images/heaven.jpg');
   background-size: cover;
   background-attachment: fixed;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  color: yellow;
 }
 
 .container {
   width: 900px;
   margin: 0 auto;
-  color: purple;
-  background-color: #5995DA;  /* Blue */
   padding: 20px;
   border-radius: 50px;
+  border: 20px dashed yellow;
 }
 
 .heading {
   text-align: center;
   padding: 20px 0px;
+  font-size: 3em;
+  text-shadow: 2px 2px #ff0000;
 }
 
 .thermostat {
   color: yellow;
   background-color: green;  /* Blue */
-  padding: 20px 10px 20px 30px;
+  padding: 50px 20px;
+  margin: 10px 100px;
   text-align: center;
-  border-radius: 50px;
+  border-radius: 40px;
+  border: 20px solid yellow;
 }
 
 .weather-api {
@@ -41,6 +47,7 @@
   margin-top: 20px;
   text-align: center;
   border-radius: 50px;
+  border: 20px solid green;
 }
 
 .button {
@@ -51,6 +58,7 @@
   padding: 20px;
   background-color: #4CAF50;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  margin-bottom: 10px;
 }
 
 .button:hover {
@@ -76,4 +84,5 @@
 .image {
   height: 400px;
   margin: 20px 100px ;
+  display: none;
 }

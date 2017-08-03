@@ -2,32 +2,37 @@
 
 $( document ).ready(function() {
 
-  var thermostat, updateTemperature, updateEnergyUsage, updateValues;
+  var thermostat, updateTemperature, updateEnergyUsage, updateAttributes, updateBackground, updateColour, updateValues, image, attributes, colour;
   thermostat = new Thermostat()
-
-  $("#pb").hide()
+  attributes = {'low':['white', 'southpole.jpg'], 'medium':['orange', 'heaven.jpg'], 'high':['red', 'hell.jpg']}
 
   updateValues = function() {
     updateTemperature()
     updateEnergyUsage()
   };
 
+  updateAttributes = function(usage) {
+    colour = attributes[usage][0];
+    image = "public/images/" + attributes[usage][1];
+    updateBackground(image);
+    updateColour(colour);
+  };
+
+  updateColour = function(colour) {
+    $("#temperature").css({"color": colour });
+  };
+
   updateTemperature = function(){
     $("#temperature").text(thermostat.temperature()+ "°C")
   };
 
+  updateBackground = function(imageSrc) {
+    $(".page").css("background-image", "url(" + imageSrc + ")");
+  };
+
   updateEnergyUsage = function() {
     $("#energy-usage").text(thermostat.usage())
-      if (thermostat.usage() === 'low') {
-      $("#temperature").css({"color":"yellow"});
-          }
-       if (thermostat.usage() === 'medium') {
-       $("#temperature").css({"color":"orange"});
-          }
-
-      if (thermostat.usage() === 'high') {
-      $("#temperature").css({"color":"red"});
-          }
+    updateAttributes(thermostat.usage())
   };
 
   updateTemperature()
