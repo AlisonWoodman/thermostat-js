@@ -1,22 +1,37 @@
 <!DOCTYPE html>
-	<html>
+<html lang='en'>
 		<head>
+			<meta charset='utf-8'/>
 			<title>Thermostat</title>
 		</head>
 		<body>
-				<h1>Alison and Alex's thermostat (not Toby's anymore)</h1>
-				<h1 id="temperature"></h1>
+			<h1>Alison and Alex's thermostat (not Toby's anymore)</h1>
+			<h1 id="temperature"></h1>
 
-					<button id ="temperature-up">+</button>
-					<button id="temperature-down">-</button>
-					<button id="temperature-reset">reset</button>
-					<button id="powersaving-on">PSM on</button>
-        	<button id="powersaving-off">PSM off</button>
-					<h2>power saving mode is <span id="power-saving-status">on</span></h2>
-					<h2>current energy usage is <span id="energy-usage">medium</span></h2>
+			<button id ="temperature-up">+</button>
+			<button id="temperature-down">-</button>
+			<button id="temperature-reset">reset</button>
+			<button id="powersaving-on">PSM on</button>
+    	<button id="powersaving-off">PSM off</button>
 
-		<script src="jquery.js"></script>
-    <script src="src/thermostat.js"></script>
-		<script src="jqueryFunctions.js"></script>
-  </body>
+			<h2>power saving mode is <span id="power-saving-status">on</span></h2>
+			<h2>current energy usage is <span id="energy-usage">medium</span></h2>
+
+			<h3>Location: <span id='location'></span></h3>
+			<h3>Temperature: <span id='weather-temp'></span>°C</h3>
+			<h3>Conditions: <span id='conditions'></span></h3>
+			<h3 id="weather-temp"></h3>
+
+			<script src="jquery.js"></script>
+	    <script src="src/thermostat.js"></script>
+			<script src="jqueryFunctions.js"></script>
+			<script>
+				$.get("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=1a92c47e93eb0f9a112ead4287eed930", function(weatherResponse) {
+					$("#location").text(weatherResponse.name);
+					$("#conditions").text(weatherResponse.weather[0].description);
+					$("#weather-temp").text(convertTemp(weatherResponse.main.temp));
+				});
+			</script>
+
+  	</body>
 </html>

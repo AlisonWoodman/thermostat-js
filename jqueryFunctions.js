@@ -1,18 +1,24 @@
 
+
 $( document ).ready(function() {
 
-  var thermostat = new Thermostat()
+  var thermostat, updateTemperature, updateEnergyUsage, updateValues;
+  thermostat = new Thermostat()
 
-  var updateValues = function() {
+  convertTemp = function(kelvinTemp) {
+    return Math.round((kelvinTemp - 273.15)* 10) / 10
+  };
+
+  updateValues = function() {
     updateTemperature()
     updateEnergyUsage()
   };
 
-  var updateTemperature = function(){
+  updateTemperature = function(){
     $("#temperature").text(thermostat.temperature())
   };
 
-  var updateEnergyUsage = function() {
+  updateEnergyUsage = function() {
     $("#energy-usage").text(thermostat.usage())
   };
 
