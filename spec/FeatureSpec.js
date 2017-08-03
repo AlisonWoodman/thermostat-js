@@ -59,11 +59,20 @@ describe('Feature Tests:', function(){
 
   it('tells the user the current energy usage', function(){
   	thermostat._temperature = 17;
-  	expect(thermostat.usage()).toEqual('low-usage');
-  	thermostat._temperature = 24; 
-  	expect(thermostat.usage()).toEqual('medium-usage');
+  	expect(thermostat.usage()).toEqual('low');
+  	thermostat._temperature = 24;
+  	expect(thermostat.usage()).toEqual('medium');
   	thermostat._temperature = 25;
-  	expect(thermostat.usage()).toEqual('high-usage');
+  	expect(thermostat.usage()).toEqual('high');
+  });
+
+  it('resets to 25 if powersave mode is switched on and temperature > 25', function(){
+    thermostat.powersavemode(false);
+    while (thermostat.temperature() < 32) {
+  		thermostat.increaseTemp()
+  	};
+    thermostat.powersavemode(true);
+    expect(thermostat.temperature()).toEqual(25);
   });
 
 });
