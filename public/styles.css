@@ -44,7 +44,7 @@
 }
 
 .button {
-  color: orange;
+  color: maroon;
   border: 2px solid black;
   border-radius: 20px;
   font-size: 16px;
@@ -53,6 +53,27 @@
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 }
 
+.button:hover {
+  background-color: pink;
+}
+
 .big {
-  font-size: 5em;
+  font-size: 7em;
+  color: orange;
+}
+
+.text-input {
+  color: grey;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 20px;
+  background-color: black;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+
+.image {
+  height: 400px;
+  margin: 20px 100px ; 
 }

@@ -5,6 +5,7 @@ $( document ).ready(function() {
   var thermostat, updateTemperature, updateEnergyUsage, updateValues;
   thermostat = new Thermostat()
 
+  $("#pb").hide()
 
   updateValues = function() {
     updateTemperature()
@@ -12,11 +13,21 @@ $( document ).ready(function() {
   };
 
   updateTemperature = function(){
-    $("#temperature").text(thermostat.temperature())
+    $("#temperature").text(thermostat.temperature()+ "°C")
   };
 
   updateEnergyUsage = function() {
     $("#energy-usage").text(thermostat.usage())
+      if (thermostat.usage() === 'low') {
+      $("#temperature").css({"color":"yellow"});
+          }
+       if (thermostat.usage() === 'medium') {
+       $("#temperature").css({"color":"orange"});
+          }
+
+      if (thermostat.usage() === 'high') {
+      $("#temperature").css({"color":"red"});
+          }
   };
 
   updateTemperature()
@@ -40,12 +51,14 @@ $( document ).ready(function() {
     thermostat.powersavemode(true)
     $("#power-saving-status").text('on')
     updateValues()
+    $("#pb").hide()
   });
 
   $("#powersaving-off").click(function( event ) {
     thermostat.powersavemode(false)
     updateTemperature()
     $("#power-saving-status").text('off')
+    $("#pb").show()
   });
 
 });
