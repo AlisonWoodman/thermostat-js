@@ -5,9 +5,6 @@ $( document ).ready(function() {
   var thermostat, updateTemperature, updateEnergyUsage, updateValues;
   thermostat = new Thermostat()
 
-  convertTemp = function(kelvinTemp) {
-    return Math.round((kelvinTemp - 273.15)* 10) / 10
-  };
 
   updateValues = function() {
     updateTemperature()
