@@ -3,29 +3,40 @@
 		<head>
 			<meta charset='utf-8'/>
 			<title>Thermostat</title>
+			<link rel='stylesheet' href='public/styles.css'/>
 		</head>
 		<body>
-			<h1>Alison and Alex's thermostat (not Toby's anymore)</h1>
-			<h1 id="temperature"></h1>
+			<div class='page'>
+				<div class='container'>
+					<h1 class='heading'>Alison and Alex's thermostat (not Toby's anymore)</h1>
+					<div class='thermostat'>
+						<h1 class='big' id="temperature"></h1>
 
-			<button id ="temperature-up">+</button>
-			<button id="temperature-down">-</button>
-			<button id="temperature-reset">reset</button>
-			<button id="powersaving-on">PSM on</button>
-    	<button id="powersaving-off">PSM off</button>
+						<button class='button' id ="temperature-up">+</button>
+						<button class='button' id="temperature-down">-</button>
+						<button class='button' id="temperature-reset">reset</button>
+						<button class='button' id="powersaving-on">PSM on</button>
+			    	<button class='button' id="powersaving-off">PSM off</button>
 
-			<h2>power saving mode is <span id="power-saving-status">on</span></h2>
-			<h2>current energy usage is <span id="energy-usage">medium</span></h2>
-			<form id="form" onsubmit="return false;">
-				<label>Choose city</label>
-				<input type="text" id="userInput">
-				<input type="submit" onclick="chooseCity()">
-			</form>
+						<h2>power saving mode is <span id="power-saving-status">on</span></h2>
+						<h2>current energy usage is <span id="energy-usage">medium</span></h2>
+					</div>
 
-			<h3>Location: <span id='location'></span></h3>
-			<h3>Temperature: <span id='weather-temp'></span>°C</h3>
-			<h3>Conditions: <span id='conditions'></span></h3>
-			<h3 id="weather-temp"></h3>
+					<div class='weather-api'>
+						<h2 class='heading'>Check The Weather Where You Are!</h2>
+						<form id="form" onsubmit="return false;">
+							<label>Choose city</label>
+							<input type="text" id="userInput">
+							<input type="submit" onclick="chooseCity()">
+						</form>
+
+						<h3>Location: <span id='location'></span></h3>
+						<h3>Temperature: <span id='weather-temp'></span>°C</h3>
+						<h3>Conditions: <span id='conditions'></span></h3>
+						<h3 id="weather-temp"></h3>
+					</div>
+				</div>
+			</div>
 
 			<script src="jquery.js"></script>
 	    <script src="src/thermostat.js"></script>

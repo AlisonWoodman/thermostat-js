@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  height: 1000px;
+  background-color: pink;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+  color: purple;
+  background-color: #5995DA;  /* Blue */
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.heading {
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.thermostat {
+  color: yellow;
+  background-color: green;  /* Blue */
+  padding: 20px 10px 20px 30px;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.weather-api {
+  color: green;
+  background-color: yellow;  /* Blue */
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.button {
+  color: orange;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 20px;
+  background-color: #4CAF50;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+
+.big {
+  font-size: 5em;
+}
